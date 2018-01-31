@@ -42,7 +42,7 @@ timestamp;telephone;message;messageid;status
 rate_limiter = ratelimiter.RateLimiter( max_calls = 25 ,  period = 1 )  #x call per x seconds - Do not exceed 25 calls per seconds
 
 # Regulations and restrictions 
-# Check your country specifications in terms of SMS
+Check your country specifications in terms of SMS
 In France, SFR, Bouygues and Orange will only accept messages for delivery between 8am and 8pm local time Monday to Saturday.
 Special characters in sender IDs are not allowed and will either be replaced by character escape or the message will be rejected.
 
