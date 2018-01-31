@@ -15,7 +15,7 @@ Python scripts to send batch SMS from a CSV file
 ## Settings
 In the code, setup the following parameters
 - `SENDER_ID = ''` in most countries you swill be able to add an alpha sender id, e.g. YOUBRAND. In the US/Canada, you will need to use a Nexmo LVN
-- `CALLBACK_URL = ''` Set your callback url to log message status and responses
+- `CALLBACK_URL = ''` Set your callback url to log message status and responses. Use the PHP file `batchsmscallback.php` on your server if you can
 - `OPT_OUT = ''` This will add an opt-out text to your messages. Please refer to your country legislation
 
 # Usage
@@ -47,4 +47,4 @@ In France, SFR, Bouygues and Orange will only accept messages for delivery betwe
 Special characters in sender IDs are not allowed and will either be replaced by character escape or the message will be rejected.
 
 # Data
-Messages status will be logged in real time within a text file in http://your_server/filename.txt
+Messages status will be logged in real time within a text file in http://your_server/batchsms.txt
