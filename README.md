@@ -4,8 +4,8 @@ Python scripts to send batch SMS from a CSV file
 
 # Installation 
 ## Install Python 3.5
-Windows:  https://docs.python.org/3/using/windows.html
-Mac: http://www.marinamele.com/2014/07/install-python3-on-mac-os-x-and-use-virtualenv-and-virtual envwrapper.html
+- Windows:  https://docs.python.org/3/using/windows.html
+- Mac: http://www.marinamele.com/2014/07/install-python3-on-mac-os-x-and-use-virtualenv-and-virtual envwrapper.html
 
 ## Install Python modules
 (pip should be installed tith Python)
