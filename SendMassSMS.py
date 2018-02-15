@@ -11,8 +11,11 @@ import ratelimiter
 import datetime
 
 # SETTINGS
+# Check local regulations for opting out and restictions
+# In France, it is advise to use " STOP au 36179" for marketing messages
 SENDER_ID = ''
 CALLBACK_URL = ''
+OPT_OUT = ''
 
 
 def main(argv):
@@ -57,7 +60,7 @@ def sendmasssms(api_key, api_secret, infile, outfile):
 
             for row in reader:
                 # print(row)
-                messageTXT = row['message'] + " STOP au 36179"
+                messageTXT = row['message'] + OPT_OUT
                 with rate_limiter:
                     params = {
                         'api_key': api_key,
