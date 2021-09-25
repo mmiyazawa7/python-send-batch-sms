@@ -13,16 +13,16 @@ import datetime
 # SETTINGS
 # Check local regulations for opting out and restictions
 # In France, it is advise to use " STOP au 36179" for marketing messages
-SENDER_ID = ''
-CALLBACK_URL = ''
+SENDER_ID = 'DemoSMS'
+CALLBACK_URL = 'https://xxxxx.ap.ngrok.io'
 OPT_OUT = ''
 
 
 def main(argv):
-    api_key = ''
-    api_secret = ''
-    infile = ''
-    outfile = ''
+    api_key = 'xxxx'
+    api_secret = 'xxxx'
+    infile = 'xxxx'
+    outfile = 'xxxx'
 
     try:
         opts, args = getopt.getopt(
@@ -48,18 +48,18 @@ def main(argv):
 
 def sendmasssms(api_key, api_secret, infile, outfile):
     with open(infile) as csvfile:
-        dialect = csv.Sniffer().sniff(csvfile.read(), delimiters=';')
+        dialect = csv.Sniffer().sniff(csvfile.read(), delimiters=',')
         csvfile.seek(0)
         reader = csv.DictReader(csvfile, dialect=dialect)
         with open(outfile, 'w') as csvfile2:
-            spamwriter = csv.writer(csvfile2, delimiter=';')
+            spamwriter = csv.writer(csvfile2, delimiter=',')
             spamwriter.writerow(['timestamp', 'telephone', 'message', 'messageid', 'status'])
 
             # x call per x seconds - Do not exceed 25 calls per seconds
             rate_limiter = ratelimiter.RateLimiter(max_calls=25, period=1)
 
             for row in reader:
-                # print(row)
+                print(row)
                 messageTXT = row['message'] + OPT_OUT
                 with rate_limiter:
                     params = {
@@ -68,7 +68,7 @@ def sendmasssms(api_key, api_secret, infile, outfile):
                         'to': row['telephone'],
                         'from': SENDER_ID,
                         'text': messageTXT,
-                        'type': 'text',
+                        'type': 'unicode',
                         'client-ref': SENDER_ID,
                         'callback': CALLBACK_URL
                     }
